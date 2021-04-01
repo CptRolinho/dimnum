@@ -1,11 +1,9 @@
 # dimnum
 LaTeX package that implements commands for Dimensionless Numbers
 
-VERSION
-    Version: v1.0.0
+Version: v1.0.0
 
-COPYRIGHT
-    Copyright (c) 2021 Miguel R. Clemente <miguel.clemente@dem.uc.pt>
+Copyright (c) 2021 Miguel R. Clemente <miguel.clemente@dem.uc.pt>
 
 	This file may be distributed and/or modified under the conditions of
 	the LaTeX Project Public License, either version 1.3 of this license
