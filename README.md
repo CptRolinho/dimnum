@@ -5,7 +5,9 @@ Current version: v1.0.0
 
 Upcoming changes:
 - Dimensionless Numbers Additions:
-	- Avogrado constant 
+	- Avogrado constant
+- Fixes:
+	- Conflict between Capillary number and the set intersection symbol 
 
 Copyright (c) 2021 Miguel R. Clemente <miguel.clemente@dem.uc.pt>
 
