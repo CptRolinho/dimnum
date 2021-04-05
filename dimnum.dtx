@@ -26,12 +26,12 @@
 %<package>\NeedsTeXFormat{LaTeX2e}[2005/12/01]
 %<package>\ProvidesPackage{dimnum}
 %<*package>
-    [2021/04/01 v1.0.0 Provides commands for Dimensionless numbers]
+    [2021/04/05 v1.0.1 Provides commands for Dimensionless numbers]
 %</package>
 %
 %<*driver>
 \documentclass{ltxdoc}
-\usepackage{dimnum}[2021/04/01]
+\usepackage{dimnum}[2021/04/05]
 \usepackage{multirow}
 \usepackage{tabu}
 \usepackage{longtable}
@@ -49,7 +49,7 @@
 %</driver>
 % \fi
 %
-% \CheckSum{122}
+% \CheckSum{221}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -69,6 +69,7 @@
 %
 %
 % \changes{v1.0.0}{2021/04/01}{Public release}
+% \changes{v1.0.1}{2021/04/05}{Minor fixes, 42 new additions}
 %
 % \DoNotIndex{\newcommand,\newenvironment}
 %
@@ -77,6 +78,8 @@
 % \title{The \textsf{dimnum} package}
 % \author{Miguel R. Clemente \\ \url{miguel.clemente@dem.uc.pt}}
 % \date{\fileversion~from \filedate}
+%
+% \extrarowsep=4mm
 %
 % \maketitle
 %
@@ -114,100 +117,142 @@
 
 % You can add your own Dimensionless Numbers to your projects. Requests and suggestions to increment Table~\ref{Tab:DimNum} are accepted and encouraged.
 %
-%\begin{longtabu*} to \textwidth {>{\small}X[2,m] >{\small}X[m,c] >{\small}X[m,c] >{\small}X[2,m,c]}
+%\begin{longtabu*} to \textwidth {>{\small}X[2,m] >{\small}X[m,c] >{\small}X[m,c]}
 % \centering \\
 % \captionsetup{justification=centering} \\
 % \caption{List of Dimensionless Numbers Available} \\
 % \label{Tab:DimNum} \\
 % \toprule \toprule
-% \rowfont[]{\bf}Long Name & Symbol & Command & Application Fields\\ \midrule
+% \rowfont[]{\bf}Long Name & Symbol & Command\\ \midrule
 % \endfirsthead
-% \multicolumn{4}{c}%
+% \multicolumn{3}{c}%
 % {{\footnotesize{\tablename\ \thetable{} -- continued from the previous page}}} \\
 % \toprule
-% \rowfont[]{\bf}Long Name & Symbol & Command & Application Fields\\ \midrule
+% \rowfont[]{\bf}Long Name & Symbol & Command\\ \midrule
 % \endhead
-% \midrule \multicolumn{4}{r}{{\footnotesize{Continues on the next page}}} \\
+% \midrule \multicolumn{3}{r}{{\footnotesize{Continues on the next page}}} \\
 % \endfoot
 % \bottomrule
 % \endlastfoot
-%         \Ar[l] & \Ar & \verb!\Ar! & Fluid Mechanics \\
-%         \At[l] & \At & \verb!\At! & Fluid Mechanics \\
-%         \Ba[l] & \Ba & \verb!\Ba! & Geology, Fluid Mechanics \\
-%         \Be[l] & \Be & \verb!\Be! & Fluid Mechanics, Thermodynamics \\
-%         \Bm[l] & \Bm & \verb!\Bm! & Fluid Mechanics, Rheology \\
-%         \Bi[l] & \Bi & \verb!\Bi! & Heat Transfer, Mass Transfer \\
-%         \Bl[l] & \Bl & \verb!\Bl! & Geology, Fluid Mechanics, Porous Media \\
-%         \Bs[l] & \Bs & \verb!\Bs! & Chemistry \\
-%         \Bo[l] & \Bo & \verb!\Bo! & Geology, Fluid Mechanics, Porous Media \\
-%         \Br[l] & \Br & \verb!\Br! & Fluid Mechanics, Heat Transfer \\
-%         \Bk[l] & \Bk & \verb!\Bk! & Fluid Mechanics \\
-%         \Cap[l] & \Cap & \verb!\Cap! & Fluid Mechanics, Porous Media \\
-%         \Cau[l] & \Cau & \verb!\Cau! &  \\
-%         \Ch[l] & \Ch & \verb!\Ch! & Magnetohydrodynamics \\
-%         \Cf[l] & \Cf & \verb!\Cf! &  \\
-%         \Co[l] & \Co & \verb!\Co! &  \\
-%         \Dah[l] & \Dah & \verb!\Dah! & Chemistry \\
-%         \Dar[l] & \Dar & \verb!\Dar! & Porous Media \\
-%         \De[l] & \De & \verb!\De! & Fluid Mechanics \\
-%         \Deb[l] & \Deb & \verb!\Deb! & Rheology \\
-%         \Cd[l] & \Cd & \verb!\Cd! &  \\
-%         \Du[l] & \Du & \verb!\Du! & Colloid Science \\
-%         \Ec[l] & \Ec & \verb!\Ec! & Heat Transfer \\
-%         \Ek[l] & \Ek & \verb!\Ek! & Geophysics \\
-%         \Ela[l] & \Ela & \verb!\Ela! &  \\
-%         \El[l] & \El & \verb!\El! &  \\
-%         \Eo[l] & \Eo & \verb!\Eo! & Fluid Mechanics \\
-%         \Er[l] & \Er & \verb!\Er! & Fluid Dynamics \\
-%         \Eu[l] & \Eu & \verb!\Eu! & Hydrodynamics \\
-%         \Fo[l] & \Fo & \verb!\Fo! & Heat Transfer, Mass Transfer \\
-%         \Fr[l] & \Fr & \verb!\Fr! & Fluid Mechanics \\
-%         \Ga[l] & \Ga & \verb!\Ga! & Fluid Mechanics \\
-%         \Go[l] & \Go & \verb!\Go! & Fluid Dynamics \\
-%         \Gz[l] & \Gz & \verb!\Gz! & Fluid Mechanics, Heat Transfer \\
-%         \Gr[l] & \Gr & \verb!\Gr! & Heat Transfer \\
-%         \Ha[l] & \Ha & \verb!\Ha! & Chemistry \\
-%         \Hg[l] & \Hg & \verb!\Hg! & Heat Transfer \\
-%         \Ho[l] & \Ho & \verb!\Ho! &  \\
-%         \Ir[l] & \Ir & \verb!\Ir! & Wave Mechanics \\
-%         \Ja[l] & \Ja & \verb!\Ja! & Chemistry \\
-%         \Ka[l] & \Ka & \verb!\Ka! & Combustion \\
-%         \Kc[l] & \Kc & \verb!\Kc! & Fluid Dynamics \\
-%         \Kn[l] & \Kn & \verb!\Kn! & Gas Dynamics \\
-%         \Ku[l] & \Ku & \verb!\Ku! & Fluid Mechanics \\
-%         \La[l] & \La & \verb!\La! & Fluid Dynamics \\
-%         \Le[l] & \Le & \verb!\Le! & Heat Transfer, Mass Transfer \\
-%         \Ma[l] & \Ma & \verb!\Ma! & Gas Dynamics \\
-%         \Mg[l] & \Mg & \verb!\Mg! & Fluid Mechanics \\
-%         \Mo[l] & \Mo & \verb!\Mo! & Fluid Dynamics \\
-%         \Nus[l] & \Nus & \verb!\Nus! & Heat Transfer \\
-%         \Oh[l] & \Oh & \verb!\Oh! & Fluid Dynamics \\
-%         \Pe[l] & \Pe & \verb!\Pe! & Heat Transfer \\
-%         \pH[l] & \pH & \verb!\pH! & Chemistry \\
-%         \Pr[l] & \Pr & \verb!\Pr! & Heat Transfer \\
-%         \Ra[l] & \Ra & \verb!\Ra! & Heat Transfer \\
-%         \Rey[l] & \Rey & \verb!\Rey! & Fluid Mechanics \\
-%         \Ri[l] & \Ri & \verb!\Ri! & Fluid Dynamics \\
-%         \Ro[l] & \Ro & \verb!\Ro! & Fluid Dynamics \\
-%         \Ros[l] & \Ros & \verb!\Ros! & Geophysics \\
-%         \Rou[l] & \Rou & \verb!\Rou! & Sediment Transport \\
-%         \Sc[l] & \Sc & \verb!\Sc! & Mass Transfer \\
-%         \Sh[l] & \Sh & \verb!\Sh! & Mass Transfer \\
-%         \So[l] & \So & \verb!\So! & Hydrodynamic Lubrication \\
-%         \St[l] & \St & \verb!\St! & Fluid Dynamics, Mass Transfer \\
-%         \Ste[l] & \Ste & \verb!\Ste! & Thermodynamics \\
-%         \Stk[l] & \Stk & \verb!\Stk! & Particles Suspensions \\
-%         \Sr[l] & \Sr & \verb!\Sr! & Fluid Dynamics \\
-%         \Stu[l] & \Stu & \verb!\Stu! & Magnetohydrodynamics \\
-%         \Sv[l] & \Sv & \verb!\Sv! & Design \\
-%         \Ta[l] & \Ta & \verb!\Ta! & Fluid Dynamics \\
-%         \Ur[l] & \Ur & \verb!\Ur! & Wave Mechanics \\
-%         \Va[l] & \Va & \verb!\Va! & Porous Media \\
-%         \Wa[l] & \Wa & \verb!\Wa! & Electrochemistry \\
-%         \Wea[l] & \Wea & \verb!\Wea! & Combustion \\
-%         \We[l] & \We & \verb!\We! & Multiphase Flow \\
-%         \Wei[l] & \Wei & \verb!\Wei! & Viscoelastic Flows \\
-%         \bottomrule
+% \Ab[l]   & \Ab   & \verb!\Ab!   \\
+% \AC[l]   & \AC   & \verb!\AC!   \\
+% \Al[l]   & \Al   & \verb!\Al!   \\
+% \Ar[l]   & \Ar   & \verb!\Ar!   \\
+% \Arr[l]  & \Arr  & \verb!\Arr!  \\
+% \AW[l]   & \AW   & \verb!\AW!   \\
+% \At[l]   & \At   & \verb!\At!   \\
+% \Ba[l]   & \Ba   & \verb!\Ba!   \\
+% \Rz[l]   & \Rz   & \verb!\Rz!   \\
+% \Be[l]   & \Be   & \verb!\Be!   \\
+% \Bm[l]   & \Bm   & \verb!\Bm!   \\
+% \Bi[l]   & \Bi   & \verb!\Bi!   \\
+% \Bl[l]   & \Bl   & \verb!\Bl!   \\
+% \Blo[l]  & \Blo  & \verb!\Blo!  \\
+% \Bs[l]   & \Bs   & \verb!\Bs!   \\
+% \Bo[l]   & \Bo   & \verb!\Bo!   \\
+% \Br[l]   & \Br   & \verb!\Br!   \\
+% \BK[l]   & \BK   & \verb!\BK!   \\
+% \Ca[l]   & \Ca   & \verb!\Ca!   \\
+% \Cau[l]  & \Cau  & \verb!\Cau!  \\
+% \Ch[l]   & \Ch   & \verb!\Ch!   \\
+% \Jh[l]   & \Jh   & \verb!\Jh!   \\
+% \Jd[l]   & \Jd   & \verb!\Jd!   \\
+% \Jm[l]   & \Jm   & \verb!\Jm!   \\
+% \CoD[l]  & \CoD  & \verb!\CoD!  \\
+% \CoF[l]  & \CoF  & \verb!\CoF!  \\
+% \CoK[l]  & \CoK  & \verb!\CoK!  \\
+% \CoS[l]  & \CoS  & \verb!\CoS!  \\
+% \CoV[l]  & \CoV  & \verb!\CoV!  \\
+% \Coh[l]  & \Coh  & \verb!\Coh!  \\
+% \Co[l]   & \Co   & \verb!\Co!   \\
+% \CFL[l]  & \CFL  & \verb!\CFL!  \\
+% \Dah[l]  & \Dah  & \verb!\Dah!  \\
+% \Dr[l]   & \Dr   & \verb!\Dr!   \\
+% \fD[l]   & \fD   & \verb!\fD!   \\
+% \Dar[l]  & \Dar  & \verb!\Dar!  \\
+% \De[l]   & \De   & \verb!\De!   \\
+% \Deb[l]  & \Deb  & \verb!\Deb!  \\
+% \Cd[l]   & \Cd   & \verb!\Cd!   \\
+% \Du[l]   & \Du   & \verb!\Du!   \\
+% \Ec[l]   & \Ec   & \verb!\Ec!   \\
+% \Ek[l]   & \Ek   & \verb!\Ek!   \\
+% \Ela[l]  & \Ela  & \verb!\Ela!  \\
+% \El[l]   & \El   & \verb!\El!   \\
+% \Eo[l]   & \Eo   & \verb!\Eo!   \\
+% \Er[l]   & \Er   & \verb!\Er!   \\
+% \Eu[l]   & \Eu   & \verb!\Eu!   \\
+% \ExT[l]  & \ExT  & \verb!\ExT!  \\
+% \fF[l]   & \fF   & \verb!\fF!   \\
+% \Fs[l]   & \Fs   & \verb!\Fs!   \\
+% \FvK[l]  & \FvK  & \verb!\FvK!  \\
+% \Fo[l]   & \Fo   & \verb!\Fo!   \\
+% \Fre[l]  & \Fre  & \verb!\Fre!  \\
+% \Fr[l]   & \Fr   & \verb!\Fr!   \\
+% \Go[l]   & \Go   & \verb!\Go!   \\
+% \Ga[l]   & \Ga   & \verb!\Ga!   \\
+% \Gz[l]   & \Gz   & \verb!\Gz!   \\
+% \Gr[l]   & \Gr   & \verb!\Gr!   \\
+% \Hg[l]   & \Hg   & \verb!\Hg!   \\
+% \Ha[l]   & \Ha   & \verb!\Ha!   \\
+% \Hav[l]  & \Hav  & \verb!\Hav!  \\
+% \He[l]   & \He   & \verb!\He!   \\
+% \Ho[l]   & \Ho   & \verb!\Ho!   \\
+% \Ir[l]   & \Ir   & \verb!\Ir!   \\
+% \Ja[l]   & \Ja   & \verb!\Ja!   \\
+% \Ka[l]   & \Ka   & \verb!\Ka!   \\
+% \KC[l]   & \KC   & \verb!\KC!   \\
+% \Kn[l]   & \Kn   & \verb!\Kn!   \\
+% \Ku[l]   & \Ku   & \verb!\Ku!   \\
+% \La[l]   & \La   & \verb!\La!   \\
+% \Le[l]   & \Le   & \verb!\Le!   \\
+% \Cl[l]   & \Cl   & \verb!\Cl!   \\
+% \LM[l]   & \LM   & \verb!\LM!   \\
+% \Lu[l]   & \Lu   & \verb!\Lu!   \\
+% \Ma[l]   & \Ma   & \verb!\Ma!   \\
+% \Mg[l]   & \Mg   & \verb!\Mg!   \\
+% \Mar[l]  & \Mar  & \verb!\Mar!  \\
+% \Mo[l]   & \Mo   & \verb!\Mo!   \\
+% \Nus[l]  & \Nus  & \verb!\Nus!  \\
+% \Oh[l]   & \Oh   & \verb!\Oh!   \\
+% \Pe[l]   & \Pe   & \verb!\Pe!   \\
+% \Peel[l] & \Peel & \verb!\Peel! \\
+% \pH[l]   & \pH   & \verb!\pH!   \\
+% \Pie[l]  & \Pie  & \verb!\Pie!  \\
+% \Poi[l]  & \Poi  & \verb!\Poi!  \\
+% \Pf[l]   & \Pf   & \verb!\Pf!   \\
+% \Pn[l]   & \Pn   & \verb!\Pn!   \\
+% \Pr[l]   & \Pr   & \verb!\Pr!   \\
+% \Cp[l]   & \Cp   & \verb!\Cp!   \\
+% \Ra[l]   & \Ra   & \verb!\Ra!   \\
+% \Rfi[l]  & \Rfi  & \verb!\Rfi!  \\
+% \Rey[l]  & \Rey  & \verb!\Rey!  \\
+% \Ri[l]   & \Ri   & \verb!\Ri!   \\
+% \Crr[l]  & \Crr  & \verb!\Crr!  \\
+% \Ro[l]   & \Ro   & \verb!\Ro!   \\
+% \Ros[l]  & \Ros  & \verb!\Ros!  \\
+% \Rou[l]  & \Rou  & \verb!\Rou!  \\
+% \Sc[l]   & \Sc   & \verb!\Sc!   \\
+% \Sh[l]   & \Sh   & \verb!\Sh!   \\
+% \Shi[l]  & \Shi  & \verb!\Shi!  \\
+% \So[l]   & \So   & \verb!\So!   \\
+% \St[l]   & \St   & \verb!\St!   \\
+% \Ste[l]  & \Ste  & \verb!\Ste!  \\
+% \Stk[l]  & \Stk  & \verb!\Stk!  \\
+% \Sr[l]   & \Sr   & \verb!\Sr!   \\
+% \Stu[l]  & \Stu  & \verb!\Stu!  \\
+% \Sv[l]   & \Sv   & \verb!\Sv!   \\
+% \Ta[l]   & \Ta   & \verb!\Ta!   \\
+% \Ur[l]   & \Ur   & \verb!\Ur!   \\
+% \Va[l]   & \Va   & \verb!\Va!   \\
+% \vtH[l]  & \vtH  & \verb!\vtH!  \\
+% \Wa[l]   & \Wa   & \verb!\Wa!   \\
+% \Wal[l]  & \Wal  & \verb!\Wal!  \\
+% \Wea[l]  & \Wea  & \verb!\Wea!  \\
+% \We[l]   & \We   & \verb!\We!   \\
+% \Wei[l]  & \Wei  & \verb!\Wei!  \\
+% \Wo[l]   & \Wo   & \verb!\Wo!   \\
+% \Zd[l]   & \Zd   & \verb!\Zd!   \\
+% \bottomrule
 % \end{longtabu*}
 %
 %
@@ -222,7 +267,7 @@
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{dimnum}
-[2021/04/01 v1.0.0 Provides commands for Dimensionless numbers]
+[2021/04/05 v1.0.1 Provides commands for Dimensionless numbers]
 \RequirePackage{amsmath}
 \RequirePackage{xifthen}
 \let\Pr\relax
@@ -259,11 +304,11 @@
 \newdimnum{Bs}{Bs}{Bodenstein}{number}
 \newdimnum{Bo}{Bo}{Bond}{number}
 \newdimnum{Br}{Br}{Brinkman}{number}
-\newdimnum{Bk}{\ensuremath{N_{BK}}}{Brownell-Katz}{number}
-\newdimnum{Cap}{Ca}{Capillary}{number}
+\newdimnum{BK}{\ensuremath{N_{BK}}}{Brownell-Katz}{number}
+\newdimnum{Ca}{Ca}{Capillary}{number}
 \newdimnum{Cau}{C}{Cauchy}{number}
 \newdimnum{Ch}{Q}{Chandrasekhar}{number}
-\newdimnum{Cf}{\ensuremath{C_f}}{Coefficient of Frication}{}
+\newdimnum{CoF}{\ensuremath{C_f}}{Coefficient of Frication}{}
 \newdimnum{Co}{Co}{Condensation}{number}
 \newdimnum{Dah}{Da}{Dahmköhler}{number}
 \newdimnum{Dar}{Da}{Darcy}{number}
@@ -290,7 +335,7 @@
 \newdimnum{Ir}{Ir}{Iribarren}{number}
 \newdimnum{Ja}{Ja}{Jakob}{number}
 \newdimnum{Ka}{Ka}{Karlovitz}{number}
-\newdimnum{Kc}{\ensuremath{K_C}}{Keulegan-Carpenter}{number}
+\newdimnum{KC}{\ensuremath{K_C}}{Keulegan-Carpenter}{number}
 \newdimnum{Kn}{Kn}{Knudsen}{number}
 \newdimnum{Ku}{Ku}{Kutateladze}{number}
 \newdimnum{La}{La}{Laplace}{number}
@@ -326,6 +371,48 @@
 \newdimnum{Wea}{Wea}{Weaver flame speed}{number}
 \newdimnum{We}{We}{Weber}{number}
 \newdimnum{Wei}{Wi}{Weissenberg}{number}
+\newdimnum{Ab}{\ensuremath{V}}{Abbe}{number}
+\newdimnum{AC}{\ensuremath{\gamma}}{Activity}{coefficient}
+\newdimnum{Al}{\ensuremath{\alpha}}{Albedo}{}
+\newdimnum{Arr}{\ensuremath{\alpha}}{Arrhenius}{number}
+\newdimnum{AW}{\ensuremath{M}}{Atomic}{weight}
+\newdimnum{Rz}{\ensuremath{R_0}}{Basic reproduction}{number}
+\newdimnum{Blo}{\ensuremath{B_k}}{Blondeau}{number}
+\newdimnum{Jm}{\ensuremath{J_M}}{Chilton-Colburn Momentum J-factor}{}
+\newdimnum{Jh}{\ensuremath{J_H}}{Chilton-Colburn Heat J-factor}{}
+\newdimnum{Jd}{\ensuremath{J_D}}{Chilton-Colburn Mass J-factor}{}
+\newdimnum{CoD}{\ensuremath{R^2}}{Coefficient of Determination}{}
+\newdimnum{CoK}{\ensuremath{\mu_k}}{Coefficient of Kinetic Friction}{}
+\newdimnum{CoS}{\ensuremath{\mu_s}}{Coefficient of Static Friction}{}
+\newdimnum{CoV}{\ensuremath{\frac{\sigma}{\mu}}}{Coefficient of Variation}{}
+\newdimnum{Coh}{\ensuremath{{Coh}}}{Cohesion}{number}
+\newdimnum{CFL}{\ensuremath{C}}{Courant-Friedrich-Levy}{number}
+\newdimnum{Dr}{\ensuremath{\zeta}}{Damping}{ratio}
+\newdimnum{fD}{\ensuremath{f_D}}{Darcy friction}{factor}
+\newdimnum{ExT}{\ensuremath{\Theta_r}}{Excess Temperature}{coefficient}
+\newdimnum{fF}{\ensuremath{f}}{Fanning friction}{factor}
+\newdimnum{Fs}{\ensuremath{\alpha}}{Fine-structure constant}{}
+\newdimnum{FvK}{\ensuremath{\gamma}}{Föppl-von Kármán}{number}
+\newdimnum{Fre}{F}{Fresnel}{number}
+\newdimnum{Hav}{\ensuremath{P_H}}{Havnes}{parameter}
+\newdimnum{He}{He}{Helmholtz}{number}
+\newdimnum{Cl}{\ensuremath{C_L}}{Lift Coefficient}{}
+\newdimnum{LM}{\ensuremath{\chi}}{Lockhart-Martinelli}{parameter}
+\newdimnum{Lu}{S}{Lundquist}{number}
+\newdimnum{Mar}{\ensuremath{\mathcal{M}}}{Markstein}{number}
+\newdimnum{Peel}{\ensuremath{N_P}}{Peel}{number}
+\newdimnum{Pie}{\ensuremath{C}}{Pierce}{parameter}
+\newdimnum{Poi}{\ensuremath{\nu}}{Poisson's}{ratio}
+\newdimnum{Pf}{\ensuremath{{pf}}}{Power}{factor}
+\newdimnum{Pn}{\ensuremath{N_p}}{Power}{number}
+\newdimnum{Cp}{\ensuremath{C_P}}{Pressure Coefficient}{}
+\newdimnum{Rfi}{\ensuremath{n}}{Refractive index}{}
+\newdimnum{Crr}{\ensuremath{C_{rr}}}{Rolling resistance}{coefficient}
+\newdimnum{Shi}{\ensuremath{\tau_*}}{Shield's}{parameter}
+\newdimnum{vtH}{\ensuremath{i}}{Van 't Hoff}{factor}
+\newdimnum{Wal}{\ensuremath{j^*}}{Wallis}{parameter}
+\newdimnum{Wo}{\ensuremath{\alpha}}{Womersley}{number}
+\newdimnum{Zd}{\ensuremath{\beta}}{Zel'dovich}{number}
 \endinput
 %    \end{macrocode}
 %

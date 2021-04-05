@@ -1,13 +1,9 @@
 # dimnum
 LaTeX package that implements commands for Dimensionless Numbers
 
-Current version: v1.0.0
+Current version: v1.0.1
 
-Upcoming changes:
-- Dimensionless Numbers Additions:
-	- Avogrado constant
-- Fixes:
-	- Conflict between Capillary number and the set intersection symbol 
+Minor fixes and 42 new additions, see full changelog for more details.
 
 Copyright (c) 2021 Miguel R. Clemente <miguel.clemente@dem.uc.pt>
 
